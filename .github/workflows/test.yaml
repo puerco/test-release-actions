@@ -1,0 +1,20 @@
+name: Release
+
+on:
+    workflow_dispatch:
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+    
+        permissions:
+            contents: write # needed to write releases
+            id-token: write # needed for keyless signing
+            packages: write # needed for pushing the images to ghcr.io
+    
+        env:
+            COSIGN_YES: "true"
+    
+        steps:
+            - name: Install publish-release
+              uses: puerco/release-actions/setup-publish-release@HEAD
