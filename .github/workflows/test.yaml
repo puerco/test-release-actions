@@ -1,10 +1,10 @@
-name: Release
+name: Test Install publish-release
 
 on:
     workflow_dispatch:
 
 jobs:
-    release:
+    setup:
         runs-on: ubuntu-latest
     
         permissions:
@@ -16,5 +16,5 @@ jobs:
             COSIGN_YES: "true"
     
         steps:
-            - name: Install publish-release
-              uses: puerco/release-actions/setup-publish-release@HEAD
+            - name: Install release notes
+              uses: puerco/release-actions/setup-release-notes@HEAD
